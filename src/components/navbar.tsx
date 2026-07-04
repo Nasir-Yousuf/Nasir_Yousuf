@@ -19,6 +19,30 @@ const navLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
+  const [activeSection, setActiveSection] = React.useState("home")
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      { rootMargin: "-40% 0px -40% 0px" }
+    )
+
+    navLinks.forEach((link) => {
+      const id = link.href.substring(1)
+      const element = document.getElementById(id)
+      if (element) {
+        observer.observe(element)
+      }
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
@@ -33,9 +57,21 @@ export function Navbar() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              className={`text-sm font-medium transition-colors relative py-1 ${
+                activeSection === link.href.substring(1)
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-primary"
+              }`}
             >
               {link.name}
+              {activeSection === link.href.substring(1) && (
+                <motion.div
+                  layoutId="activeNavIndicator"
+                  className="absolute -bottom-[21px] left-0 right-0 h-[2px] bg-primary"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                />
+              )}
             </Link>
           ))}
           <div className="pl-2 border-l border-border h-6 flex items-center">
@@ -63,15 +99,19 @@ export function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden bg-background border-b border-border/40"
+          className="md:hidden bg-background border-b border-border/40 absolute w-full"
         >
-          <nav className="flex flex-col p-4">
+          <nav className="flex flex-col p-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="py-3 px-4 text-sm font-medium text-foreground hover:bg-muted rounded-md transition-colors"
+                className={`py-3 px-4 text-sm font-medium rounded-md transition-colors ${
+                  activeSection === link.href.substring(1)
+                    ? "bg-primary/10 text-primary"
+                    : "text-foreground hover:bg-muted"
+                }`}
               >
                 {link.name}
               </Link>
