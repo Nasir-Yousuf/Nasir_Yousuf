@@ -11,22 +11,26 @@ const skillCategories = [
   {
     title: "Development",
     icon: <Code className="h-5 w-5 text-primary" />,
-    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Node.js", "Git", "HTML5", "CSS3"],
+    skills: ["React", "Next.js", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Firebase", "Git & GitHub", "REST APIs"],
+    summary: "Building responsive, full-stack web applications with modern JavaScript technologies.",
   },
   {
-    title: "AI & Engineering",
+    title: "AI",
     icon: <Bot className="h-5 w-5 text-primary" />,
-    skills: ["Prompt Engineering", "LLMs", "AI Agents", "Python", "RAG", "Data Analysis"],
+    skills: ["Generative AI", "Prompt Engineering", "Python", "LLM Fundamentals", "AI-Assisted Development", "AI Workflows"],
+    summary: "Exploring AI-powered software and practical workflows for modern applications.",
   },
   {
     title: "Creative",
     icon: <Palette className="h-5 w-5 text-primary" />,
-    skills: ["Video Editing", "Premiere Pro", "UI/UX Design", "Figma", "Storytelling", "Content Creation"],
+    skills: ["Video Editing", "Adobe Premiere Pro", "Adobe After Effects", "Canva", "Storytelling", "Content Creation"],
+    summary: "Creating engaging videos for businesses, podcasts, and social media.",
   },
   {
-    title: "Marketing",
+    title: "Digital Marketing",
     icon: <Megaphone className="h-5 w-5 text-primary" />,
-    skills: ["Digital Marketing", "Content Strategy", "SEO", "Social Media Management", "Copywriting"],
+    skills: ["Digital Marketing", "Content Strategy", "SEO", "WordPress", "Kajabi", "GoHighLevel"],
+    summary: "Helping brands grow through content, websites, and digital campaigns.",
   },
 ]
 
@@ -64,10 +68,10 @@ export function SkillsSection() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Core Skills</h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full" />
           <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            A diverse toolkit that allows me to build robust applications, leverage AI for problem-solving, and present ideas creatively.
+            A multidisciplinary toolkit built through real projects, client work, and continuous learning.
           </p>
         </motion.div>
 
@@ -79,8 +83,8 @@ export function SkillsSection() {
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {skillCategories.map((category) => (
-            <motion.div key={category.title} variants={itemVariants}>
-              <Card className="h-full border-border/50 hover:border-primary/30 transition-colors bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md">
+            <motion.div key={category.title} variants={itemVariants} className="h-full">
+              <Card className="h-full flex flex-col border-border/50 hover:border-primary/30 transition-colors bg-background/50 backdrop-blur-sm shadow-sm hover:shadow-md">
                 <CardHeader>
                   <CardTitle className="text-lg flex items-center gap-3">
                     <div className="p-2 rounded-lg bg-primary/10">
@@ -89,8 +93,8 @@ export function SkillsSection() {
                     {category.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2">
+                <CardContent className="flex flex-col flex-grow">
+                  <div className="flex flex-wrap gap-2 mb-6">
                     {category.skills.map((skill) => (
                       <Badge
                         key={skill}
@@ -100,6 +104,11 @@ export function SkillsSection() {
                         {skill}
                       </Badge>
                     ))}
+                  </div>
+                  <div className="mt-auto pt-4 border-t border-border/50">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {category.summary}
+                    </p>
                   </div>
                 </CardContent>
               </Card>

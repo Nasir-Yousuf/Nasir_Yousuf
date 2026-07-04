@@ -24,7 +24,7 @@ export function Navbar() {
     <header className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border/40">
       <div className="container mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
         <Link href="#home" className="text-xl font-bold tracking-tight">
-          Nasir<span className="text-primary">.</span>
+          Nasir Yousuf<span className="text-primary">.</span>
         </Link>
 
         {/* Desktop Nav */}

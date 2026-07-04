@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "Nasir | Portfolio",
+  title: "Nasir Yousuf | Portfolio",
   description: "Personal portfolio of Nasir - Frontend Developer & AI Explorer",
 };
 

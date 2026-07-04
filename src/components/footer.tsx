@@ -9,7 +9,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="#home" className="text-xl font-bold tracking-tight">
-            Nasir<span className="text-primary">.</span>
+            Nasir Yousuf<span className="text-primary">.</span>
           </Link>
           <p className="text-sm text-muted-foreground text-center md:text-left max-w-sm">
             Building modern web applications and exploring AI to solve real-world problems.
