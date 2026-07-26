@@ -15,6 +15,7 @@ const projects = [
   {
     title: "Blood Donation Platform",
     description: "A centralized platform to connect blood donors with recipients quickly and efficiently.",
+    ctaText: undefined,
     tech: ["Next.js", "TypeScript", "Tailwind CSS", "Node.js", "PostgreSQL"],
     github: "https://github.com/Nasir-Yousuf/Blood-Donation-App",
     demo: "https://blood-donation-app-1ecj-nasiryousufs-projects.vercel.app/",
@@ -27,7 +28,7 @@ const projects = [
     title: "Forest at Home",
     description: "A modern, interactive e-commerce web application for buying indoor plants, featuring a visually immersive, nature-inspired experience.",
     tech: ["React (Vite)", "Tailwind CSS", "Framer Motion", "Node.js", "Express.js", "MongoDB"],
-    github: "",
+    github: "https://github.com/Nasir-Yousuf/Forest-At-Home",
     demo: "https://forest-at-home.onrender.com/",
     image: "/forest-at-home.png",
     problem: "Needed an online store that goes beyond standard e-commerce to create a living digital environment where users feel like they are exploring a growing forest.",
@@ -35,14 +36,17 @@ const projects = [
     lessons: "Improving frontend architecture, integrating smooth Framer Motion animations, learning full-stack development. (Admin Demo: demo@admin.com / admin123)",
   },
   {
-    title: "Premium Portfolio Website",
-    description: "A personal portfolio designed to showcase skills, projects, and a passion for technology.",
-    tech: ["Next.js", "Tailwind CSS", "Framer Motion", "shadcn/ui"],
-    github: "https://github.com",
-    demo: "https://demo.com",
-    problem: "Needed a digital presence that stands out to recruiters across both software engineering and creative fields.",
-    solution: "Built a highly interactive, Apple-inspired minimalist design with seamless dark mode and smooth animations.",
-    lessons: "Deepened my understanding of accessible UI components and complex Framer Motion orchestration.",
+    title: "Video Editing Portfolio",
+    description: "A comprehensive collection of my video projects, showcasing my ability to craft engaging visual narratives across various formats.",
+    tech: ["Vlogs", "Reels", "Tips & Tricks", "Shorts", "Premiere Pro", "After Effects"],
+    github: "",
+    demo: "https://drive.google.com/drive/folders/1vlSyBN_6Zwb5t3wyKVb284HjxRm4pjOF?usp=drive_link",
+    ctaText: "Explore Google Drive",
+    image: "/video-portfolio.jpg",
+    imageClassName: "object-contain p-4 md:p-8",
+    problem: "Needed a centralized portfolio to showcase the variety of video content I edit, from long-form vlogs to punchy social media reels.",
+    solution: "Compiled an organized collection highlighting my versatility in editing different formats, pacing, and styles.",
+    lessons: "Deepened my understanding of cross-platform content strategy, audience retention techniques, and optimizing visuals for different social media algorithms.",
   },
 ]
 
@@ -82,7 +86,7 @@ export function ProjectsSection() {
                         src={project.image}
                         alt={project.title}
                         fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        className={`transition-transform duration-500 group-hover:scale-105 ${project.imageClassName || "object-cover object-top"}`}
                       />
                     ) : (
                       <>
@@ -102,18 +106,6 @@ export function ProjectsSection() {
                     <div>
                       <div className="flex justify-between items-start mb-4">
                         <h3 className="text-2xl font-bold">{project.title}</h3>
-                        <div className="flex gap-2">
-                          {project.github && (
-                            <Link href={project.github} target="_blank" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full hover:text-primary" })}>
-                              <Github className="h-5 w-5" />
-                              <span className="sr-only">GitHub</span>
-                            </Link>
-                          )}
-                          <Link href={project.demo} target="_blank" className={buttonVariants({ variant: "ghost", size: "icon", className: "rounded-full hover:text-primary" })}>
-                            <ExternalLink className="h-5 w-5" />
-                            <span className="sr-only">Live Demo</span>
-                          </Link>
-                        </div>
                       </div>
                       
                       <p className="text-muted-foreground mb-6">
@@ -139,6 +131,29 @@ export function ProjectsSection() {
                           </h4>
                           <p className="text-sm text-muted-foreground">{project.lessons}</p>
                         </div>
+
+                        <div className="pt-2 flex flex-wrap gap-4">
+                          {project.github && (
+                            <Link 
+                              href={project.github} 
+                              target="_blank" 
+                              className={buttonVariants({ variant: "outline", className: "rounded-full shadow-sm hover:shadow-md transition-all" })}
+                            >
+                              <Github className="mr-2 h-4 w-4" />
+                              View Code
+                            </Link>
+                          )}
+                          {project.demo && (
+                            <Link 
+                              href={project.demo} 
+                              target="_blank" 
+                              className={buttonVariants({ variant: "default", className: "rounded-full shadow-md hover:shadow-lg transition-all" })}
+                            >
+                              {project.ctaText || "Live Demo"}
+                              <ExternalLink className="ml-2 h-4 w-4" />
+                            </Link>
+                          )}
+                        </div>
                       </div>
                     </div>
 
@@ -155,6 +170,7 @@ export function ProjectsSection() {
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   )

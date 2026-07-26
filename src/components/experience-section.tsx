@@ -38,8 +38,9 @@ const achievements = [
     icon: <Star className="h-5 w-5 text-primary" />,
   },
   {
-    title: "Second Place Chess Competition",
+    title: "First Place Chess Competition",
     category: "Award",
+    description: "Awarded 1st place in an inter-college chess tournament.",
     icon: <Trophy className="h-5 w-5 text-primary" />,
   },
 ]
@@ -127,6 +128,9 @@ export function ExperienceSection() {
                       <div>
                         <h3 className="font-semibold text-sm mb-1">{item.title}</h3>
                         <p className="text-xs text-muted-foreground uppercase tracking-wider">{item.category}</p>
+                        {item.description && (
+                          <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{item.description}</p>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
