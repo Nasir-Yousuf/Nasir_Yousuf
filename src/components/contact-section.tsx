@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion } from "framer-motion";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Phone } from "lucide-react";
 import { Github, Linkedin } from "@/components/icons";
 import Link from "next/link";
 
@@ -44,6 +44,17 @@ export function ContactSection() {
                 >
                   <Mail className="mr-2 h-5 w-5" /> Say Hello{" "}
                   <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+                <Link
+                  href="https://wa.me/8801816550751"
+                  target="_blank"
+                  className={buttonVariants({
+                    variant: "outline",
+                    size: "lg",
+                    className: "rounded-full h-14 px-8 text-base bg-background/50 hover:bg-green-500/10 hover:text-green-600 hover:border-green-500/50 transition-colors",
+                  })}
+                >
+                  <Phone className="mr-2 h-5 w-5" /> 01816550751
                 </Link>
               </div>
 

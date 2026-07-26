@@ -66,9 +66,7 @@ export function HeroSection() {
             <Link href="#projects" className={buttonVariants({ size: "lg", className: "rounded-full" })}>
               View Projects <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
-            <Button variant="outline" size="lg" className="rounded-full">
-              <Download className="mr-2 h-4 w-4" /> Download Resume
-            </Button>
+
             <Link href="#contact" className={buttonVariants({ variant: "secondary", size: "lg", className: "rounded-full" })}>
               Contact Me
             </Link>
