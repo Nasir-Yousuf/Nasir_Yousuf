@@ -3,6 +3,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+import { AnimatedBackground } from "@/components/animated-background";
 
 export const metadata: Metadata = {
   title: "Nasir Yousuf | Portfolio",
@@ -25,6 +26,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <AnimatedBackground />
           <Navbar />
           <main className="flex-grow pt-16">
             {children}

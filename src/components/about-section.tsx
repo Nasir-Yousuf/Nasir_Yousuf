@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import { motion, Variants } from "framer-motion";
-import { BookOpen, Quote, Sparkles, GraduationCap, Code } from "lucide-react";
+import { BookOpen, Code, GraduationCap, Quote, Sparkles } from "lucide-react";
+import { TiltCard } from "./tilt-card";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -70,8 +71,16 @@ export function AboutSection() {
   return (
     <section id="about" className="py-24 bg-muted/30 relative overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-blue-500/5 rounded-full blur-3xl -z-10" />
+      <motion.div 
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl -z-10" 
+        animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div 
+        className="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-blue-500/5 rounded-full blur-3xl -z-10" 
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+      />
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <motion.div
@@ -94,8 +103,12 @@ export function AboutSection() {
         >
           {/* Main Intro Card (Spans 2 columns on lg) */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <Card className="h-full border-primary/10 bg-background/60 backdrop-blur-md hover:border-primary/30 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <CardContent className="p-8 md:p-10 space-y-6 text-lg text-muted-foreground leading-relaxed flex flex-col justify-center h-full">
+            <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 0 }} className="h-full">
+              <TiltCard className="h-full">
+              <Card className="h-full border-border/50 hover:border-primary/30 bg-background/50 hover:bg-background/80 backdrop-blur-md transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_hsl(var(--primary)/0.15)] relative overflow-hidden group">
+                {/* Top Hover Border */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 ease-out z-20" />
+                <CardContent className="p-6 md:p-10 space-y-6 text-lg text-muted-foreground leading-relaxed flex flex-col justify-center h-full">
                 <div className="inline-flex items-center space-x-2 text-primary mb-2">
                   <Code className="h-6 w-6" />
                   <span className="font-semibold text-xl tracking-tight">
@@ -119,12 +132,18 @@ export function AboutSection() {
                 </p>
               </CardContent>
             </Card>
+            </TiltCard>
+            </motion.div>
           </motion.div>
 
           {/* Reading Card */}
           <motion.div variants={itemVariants}>
-            <Card className="h-full border-primary/10 bg-background/60 backdrop-blur-md hover:border-primary/30 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <CardHeader className="pb-4">
+            <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 }} className="h-full">
+              <TiltCard className="h-full">
+              <Card className="h-full border-border/50 hover:border-primary/30 bg-background/50 hover:bg-background/80 backdrop-blur-md transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_hsl(var(--primary)/0.15)] relative overflow-hidden group">
+                {/* Top Hover Border */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 ease-out z-20" />
+                <CardHeader className="pb-4">
                 <CardTitle className="text-lg flex items-center">
                   <BookOpen className="mr-2 h-5 w-5 text-primary" /> Currently
                   Reading
@@ -153,13 +172,19 @@ export function AboutSection() {
                 </ul>
               </CardContent>
             </Card>
+            </TiltCard>
+            </motion.div>
           </motion.div>
 
           {/* Philosophy Card */}
           <motion.div variants={itemVariants}>
-            <Card className="h-full border-primary/10 bg-background/60 backdrop-blur-md hover:border-primary/30 transition-colors duration-300 shadow-sm hover:shadow-md relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <CardContent className="p-8 h-full flex flex-col justify-center relative z-10">
+            <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }} className="h-full">
+              <TiltCard className="h-full">
+              <Card className="h-full border-border/50 hover:border-primary/30 bg-background/50 hover:bg-background/80 backdrop-blur-md transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_hsl(var(--primary)/0.15)] relative overflow-hidden group">
+                {/* Top Hover Border */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 ease-out z-20" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <CardContent className="p-6 md:p-8 h-full flex flex-col justify-center relative z-10">
                 <div className="inline-flex items-center space-x-2 text-primary mb-4">
                   <GraduationCap className="h-6 w-6" />
                   <span className="font-semibold text-lg tracking-tight">
@@ -174,12 +199,18 @@ export function AboutSection() {
                 </p>
               </CardContent>
             </Card>
+            </TiltCard>
+            </motion.div>
           </motion.div>
 
           {/* Growing In Card (Spans 2 columns on lg) */}
           <motion.div variants={itemVariants} className="lg:col-span-2">
-            <Card className="h-full border-primary/10 bg-background/60 backdrop-blur-md hover:border-primary/30 transition-colors duration-300 shadow-sm hover:shadow-md">
-              <CardHeader className="pb-2">
+            <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 3 }} className="h-full">
+              <TiltCard className="h-full">
+              <Card className="h-full border-border/50 hover:border-primary/30 bg-background/50 hover:bg-background/80 backdrop-blur-md transition-all duration-300 shadow-lg hover:shadow-[0_8px_30px_hsl(var(--primary)/0.15)] relative overflow-hidden group">
+                {/* Top Hover Border */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 ease-out z-20" />
+                <CardHeader className="pb-2">
                 <CardTitle className="text-lg flex items-center">
                   <Sparkles className="mr-2 h-5 w-5 text-primary" /> Currently
                   Growing In
@@ -208,20 +239,28 @@ export function AboutSection() {
                 </div>
               </CardContent>
             </Card>
+            </TiltCard>
+            </motion.div>
           </motion.div>
 
           {/* Quote Card (Full Width) */}
           <motion.div variants={itemVariants} className="lg:col-span-3">
-            <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-r from-background via-primary/5 to-background hover:border-primary/40 transition-all duration-500 group shadow-md hover:shadow-lg">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              <CardContent className="p-10 md:p-14 flex items-center justify-center relative z-10">
+            <motion.div animate={{ y: [0, -6, 0] }} transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.5 }} className="h-full">
+              <TiltCard className="h-full">
+              <Card className="relative overflow-hidden border-primary/20 bg-gradient-to-r from-background via-primary/5 to-background hover:border-primary/30 transition-all duration-500 group shadow-md hover:shadow-[0_8px_30px_hsl(var(--primary)/0.15)]">
+                {/* Top Hover Border */}
+                <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-transparent via-primary to-transparent scale-x-0 group-hover:scale-x-100 origin-center transition-transform duration-500 ease-out z-20" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+              <CardContent className="p-8 md:p-14 flex items-center justify-center relative z-10">
                 <Quote className="absolute top-6 left-6 md:top-10 md:left-10 h-10 w-10 text-primary/20 transition-transform duration-500 group-hover:-translate-y-2 group-hover:-translate-x-2" />
-                <p className="text-2xl md:text-3xl font-medium text-foreground italic text-center max-w-3xl leading-snug">
+                <p className="text-xl md:text-3xl font-medium text-foreground italic text-center max-w-3xl leading-snug">
                   "The ability to learn is more valuable than any single skill."
                 </p>
                 <Quote className="absolute bottom-6 right-6 md:bottom-10 md:right-10 h-10 w-10 text-primary/20 rotate-180 transition-transform duration-500 group-hover:translate-y-2 group-hover:translate-x-2" />
               </CardContent>
             </Card>
+            </TiltCard>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>
