@@ -82,7 +82,7 @@ export function AboutSection() {
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

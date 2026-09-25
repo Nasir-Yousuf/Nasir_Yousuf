@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scroll-smooth">
       <body
-        className="antialiased min-h-screen flex flex-col font-sans"
+        className="antialiased min-h-screen flex flex-col font-sans overflow-x-hidden"
       >
         <ThemeProvider
           attribute="class"

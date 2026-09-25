@@ -19,7 +19,7 @@ export function ContactSection() {
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container mx-auto px-4 md:px-8 max-w-4xl">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16">
         <Card className="border-border/50 bg-background/50 backdrop-blur-xl shadow-2xl overflow-hidden relative">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent pointer-events-none" />
 

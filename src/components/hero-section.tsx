@@ -2,20 +2,20 @@
 
 import * as React from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { MapPin, Download, ArrowRight, Mail } from "lucide-react"
+import { MapPin, ArrowRight, Mail, Sparkles, Code2, Film, Brain, Bot, Cpu } from "lucide-react"
 import { Github, Linkedin } from "@/components/icons"
 import Link from "next/link"
 import Image from "next/image"
 
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 
 const titles = [
-  "Frontend Developer",
-  "AI Explorer",
+  "Next.js Developer",
+  "AI & LLM Explorer",
+  "AI Application Builder",
   "Creative Technologist",
-  "Video Editor",
-  "Problem Solver"
+  "Video & Media Creator"
 ]
 
 export function HeroSection() {
@@ -29,17 +29,30 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center pt-24 md:pt-16 pb-20 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
+    <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center pt-24 md:pt-16 pb-16 lg:pb-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         
         {/* Text Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="space-y-8"
+          className="flex flex-col justify-center space-y-8"
         >
           <div className="space-y-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.4 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20 w-fit"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+              </span>
+              Available for new opportunities
+            </motion.div>
+
             <motion.h1 
               className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight flex flex-wrap"
               initial="hidden"
@@ -62,57 +75,59 @@ export function HeroSection() {
                 </motion.span>
               ))}
               <motion.span 
-                className="text-primary"
+                className="text-primary ml-1"
                 variants={{ hidden: { opacity: 0, y: 20, filter: "blur(10px)" }, visible: { opacity: 1, y: 0, filter: "blur(0px)" } }}
               >
                 Nasir
               </motion.span>
             </motion.h1>
-            <div className="h-10 sm:h-12 flex items-center overflow-hidden text-2xl md:text-4xl font-semibold text-muted-foreground">
+
+            <div className="h-10 sm:h-12 flex items-center overflow-hidden text-2xl md:text-3xl lg:text-4xl font-semibold text-muted-foreground">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={titleIndex}
-                  initial={{ y: 40, opacity: 0 }}
+                  initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -40, opacity: 0 }}
+                  exit={{ y: -30, opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="block"
+                  className="block text-foreground/90"
                 >
                   {titles[titleIndex]}
                 </motion.span>
               </AnimatePresence>
             </div>
-            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-              I build modern web applications, create engaging digital content, and explore how AI can solve real-world problems. I enjoy combining technology, storytelling, and creativity to build products people love using.
+
+            <p className="text-base sm:text-lg text-muted-foreground max-w-lg leading-relaxed">
+              I build modern Next.js applications, explore cutting-edge AI systems, and create engaging digital media. I enjoy combining artificial intelligence, clean web architecture, and creativity to build practical solutions that make an impact.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-4">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="#projects" className={buttonVariants({ size: "lg", className: "rounded-full" })}>
+          <div className="flex flex-wrap items-center gap-4">
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Link href="#projects" className={buttonVariants({ size: "lg", className: "rounded-full shadow-lg shadow-primary/20" })}>
                 View Projects <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </motion.div>
 
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="#contact" className={buttonVariants({ variant: "secondary", size: "lg", className: "rounded-full" })}>
+            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+              <Link href="#contact" className={buttonVariants({ variant: "outline", size: "lg", className: "rounded-full border-border/80 hover:bg-muted" })}>
                 Contact Me
               </Link>
             </motion.div>
           </div>
 
-          <div className="flex items-center gap-6 pt-4">
-            <div className="flex items-center text-sm text-muted-foreground">
+          <div className="flex items-center gap-6 pt-2">
+            <div className="flex items-center text-sm font-medium text-muted-foreground">
               <MapPin className="mr-2 h-4 w-4 text-primary" /> Bangladesh
             </div>
-            <div className="flex items-center gap-4 border-l border-border pl-6">
-              <Link href="https://github.com/Nasir-Yousuf/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+            <div className="flex items-center gap-3 border-l border-border pl-6">
+              <Link href="https://github.com/Nasir-Yousuf/" target="_blank" aria-label="GitHub Profile" className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors">
                 <Github className="h-5 w-5" />
               </Link>
-              <Link href="https://www.linkedin.com/in/nasir-yousuf200511/" target="_blank" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="https://www.linkedin.com/in/nasir-yousuf200511/" target="_blank" aria-label="LinkedIn Profile" className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors">
                 <Linkedin className="h-5 w-5" />
               </Link>
-              <Link href="mailto:nasiryousuf200511@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+              <Link href="mailto:nasiryousuf200511@gmail.com" aria-label="Send Email" className="p-2 rounded-full hover:bg-primary/10 text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-5 w-5" />
               </Link>
             </div>
@@ -124,97 +139,94 @@ export function HeroSection() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative lg:ml-auto w-full max-w-md xl:max-w-lg"
+          className="relative flex justify-center items-center py-4"
         >
-          {/* Decorative Background & Animated Circles */}
-          <motion.div 
-            className="absolute inset-0 -z-10 translate-x-4 translate-y-6"
-            animate={{ 
-              rotate: [3, 6, 3],
-              scale: [1, 1.05, 1],
-              opacity: [0.8, 1, 0.8]
-            }}
-            transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
-          >
-            <div className="w-full h-full border-2 border-primary/20 bg-primary/10 rounded-[2rem] relative">
-              {/* Top right circle */}
-              <motion.div 
-                className="absolute -top-3 -right-3 w-8 h-8 bg-primary rounded-full shadow-lg shadow-primary/40"
-                animate={{ scale: [1, 1.3, 1] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-              />
-              
-              {/* Bottom left circle */}
-              <motion.div 
-                className="absolute -bottom-4 -left-4 w-10 h-10 bg-primary/80 rounded-full shadow-lg shadow-primary/30"
-                animate={{ scale: [1, 1.2, 1], y: [0, 8, 0] }}
-                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
-              />
+          {/* Constrained Photo Wrapper with Balanced Dimensions */}
+          <div className="relative w-full max-w-[310px] sm:max-w-[340px] md:max-w-[360px]">
+            
+            {/* Ambient Glow behind photo */}
+            <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 via-primary/5 to-transparent rounded-[2.5rem] blur-2xl -z-10" />
 
-              {/* Middle left floating circle */}
-              <motion.div 
-                className="absolute top-1/2 -left-8 w-6 h-6 bg-primary/60 rounded-full shadow-md shadow-primary/20"
-                animate={{ x: [0, -15, 0], y: [0, -10, 0] }}
-                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut", delay: 2 }}
-              />
-            </div>
-          </motion.div>
-          
-          <motion.div 
-            className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-muted border border-border shadow-2xl"
-            animate={{ y: [0, -12, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-          >
-            <Image
-              src="/profile.jpg"
-              alt="Nasir's Profile Photo"
-              fill
-              className="object-cover"
-              priority
+            {/* Decorative background frame */}
+            <motion.div 
+              className="absolute inset-0 -z-10 translate-x-3 translate-y-3 rounded-3xl border border-primary/30 bg-primary/5"
+              animate={{ 
+                rotate: [1, 2.5, 1],
+                scale: [1, 1.02, 1],
+              }}
+              transition={{ repeat: Infinity, duration: 8, ease: "easeInOut" }}
             />
-          </motion.div>
 
-          {/* Current Focus Card Floating */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: [0, 8, 0] }}
-            transition={{ 
-              opacity: { duration: 0.5, delay: 0.5 },
-              y: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 1 } 
-            }}
-            className="absolute -bottom-12 left-4 right-4 sm:-bottom-10 sm:right-auto sm:-left-10 lg:-left-20 max-w-none sm:max-w-[300px] w-auto sm:w-full z-10"
-          >
-            <Card className="shadow-xl bg-background/95 backdrop-blur border-primary/20">
-              <CardContent className="p-4 space-y-3">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary">Current Focus</p>
-                <motion.ul 
-                  className="space-y-2 text-sm text-muted-foreground"
-                  initial="hidden"
-                  animate="show"
-                  variants={{
-                    hidden: { opacity: 0 },
-                    show: {
-                      opacity: 1,
-                      transition: { staggerChildren: 0.15, delayChildren: 0.7 }
-                    }
-                  }}
-                >
-                  <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-start">
-                    <span className="mr-2">🚀</span> Building modern web applications with React & Next.js
-                  </motion.li>
-                  <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-start">
-                    <span className="mr-2">🤖</span> Learning AI Engineering & Python
-                  </motion.li>
-                  <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-start">
-                    <span className="mr-2">🎬</span> Creating professional video content
-                  </motion.li>
-                  <motion.li variants={{ hidden: { opacity: 0, x: -10 }, show: { opacity: 1, x: 0 } }} className="flex items-start">
-                    <span className="mr-2">📚</span> Bachelor's in English Literature
-                  </motion.li>
-                </motion.ul>
-              </CardContent>
-            </Card>
-          </motion.div>
+            {/* Profile Photo Card */}
+            <motion.div 
+              className="relative aspect-[4/5] rounded-3xl overflow-hidden bg-muted border border-border/80 shadow-2xl"
+              animate={{ y: [0, -8, 0] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            >
+              <Image
+                src="/profile.jpg"
+                alt="Nasir's Profile Photo"
+                fill
+                sizes="(max-width: 768px) 90vw, 360px"
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
+
+            {/* Floating Top Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: [0, -4, 0] }}
+              transition={{
+                opacity: { duration: 0.4, delay: 0.4 },
+                y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
+              }}
+              className="absolute -top-3 -right-3 z-10"
+            >
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-md border border-primary/30 shadow-lg text-xs font-semibold text-foreground">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                <span>AI & Next.js</span>
+              </div>
+            </motion.div>
+
+            {/* Compact Current Focus Card Floating Symmetrically */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: [0, 6, 0] }}
+              transition={{ 
+                opacity: { duration: 0.5, delay: 0.5 },
+                y: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1 } 
+              }}
+              className="absolute -bottom-6 -left-4 sm:-bottom-6 sm:-left-6 right-2 sm:right-auto sm:w-[280px] z-10"
+            >
+              <Card className="shadow-xl bg-background/90 backdrop-blur-md border-border/80 hover:border-primary/40 transition-colors">
+                <CardContent className="p-3.5 space-y-2.5">
+                  <div className="flex items-center justify-between">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-primary flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary" /> Current Focus
+                    </p>
+                    <span className="text-[10px] text-muted-foreground font-mono">2026</span>
+                  </div>
+
+                  <ul className="space-y-1.5 text-xs text-muted-foreground">
+                    <li className="flex items-center gap-2">
+                      <Bot className="h-3.5 w-3.5 text-primary shrink-0" />
+                      <span className="truncate">AI Agents & LLM Systems</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Code2 className="h-3.5 w-3.5 text-primary shrink-0" />
+                      <span className="truncate">Next.js & Fullstack Web</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <Brain className="h-3.5 w-3.5 text-primary shrink-0" />
+                      <span className="truncate">Python, PyTorch & AI Models</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
         </motion.div>
 
       </div>

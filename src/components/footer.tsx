@@ -6,7 +6,7 @@ import { Github, Linkedin } from "@/components/icons"
 export function Footer() {
   return (
     <footer className="border-t border-border/40 py-12 bg-muted/20">
-      <div className="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start gap-2">
           <Link href="#home" className="text-xl font-bold tracking-tight">
             Nasir Yousuf<span className="text-primary">.</span>
@@ -45,7 +45,7 @@ export function Footer() {
         </div>
       </div>
       
-      <div className="container mx-auto px-4 mt-8 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-12 lg:px-16 mt-8 pt-8 border-t border-border/40 text-center text-sm text-muted-foreground">
         &copy; {new Date().getFullYear()} Nasir. All rights reserved.
       </div>
     </footer>
